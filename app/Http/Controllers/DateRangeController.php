@@ -50,7 +50,7 @@ class DateRangeController extends Controller
 		if($fromDate != "" && $toDate != ""){
 		// DB::enableQueryLog();
 
-    	 $projects = DB::table('all_activity_log')
+    	 $projects = DB::table('all_activity')
     	 	// ->count(case when type = 'SMS' then 1 else null end)  as 'SMS',
             // ->join('debts', 'projects.id', '=', 'debts.projects_id')
             // ->select('projects.*','debts.*', DB::raw('sum(total) as sum'))
