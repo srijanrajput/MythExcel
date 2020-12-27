@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/date', [App\Http\Controllers\DateRangeController::class, 'index']);
+Route::get('/date', [App\Http\Controllers\DateRangeController::class, 'date']);
+Route::get('/monthlyreport', [App\Http\Controllers\DateRangeController::class, 'monthlyreport']);
 
 // Route for export/download tabledata to .csv, .xls or .xlsx
 Route::get('/exportExcel', [App\Http\Controllers\DateRangeController::class, 'exportExcel'])->name('exportExcel');
