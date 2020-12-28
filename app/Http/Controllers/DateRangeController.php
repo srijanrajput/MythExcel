@@ -61,7 +61,7 @@ class DateRangeController extends Controller
             	DB::raw('count(case when type = "Email" then 1 else null end) as "Email"'),
             	DB::raw('count(case when type = "SMS" then 1 else null end)  as "SMS"'),
             	DB::raw('count(case when type = "Notes" then 1 else null end)  as "Notes"'),
-            	DB::raw('count(case when type = "Status Changes" then 1 else null end)  as "Status Changes"'),
+            	DB::raw('count(case when type = "Status Changes" then 1 else null end)  as "Status_Changes"'),
             	DB::raw('count(case when type = "Debts" then 1 else null end)  as "Debts"')
             )
             ->groupBy('user')
@@ -69,7 +69,8 @@ class DateRangeController extends Controller
             ->where('created', '>=', $fromDate)
             ->get();
 // dd(DB::getQueryLog());
-            dd($projects);
+            // dd($projects);
+            return view('monthlyreport', compact('projects'));
         }
     	return view('monthlyreport');
     }

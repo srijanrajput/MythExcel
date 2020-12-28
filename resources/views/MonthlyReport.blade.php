@@ -48,9 +48,10 @@
 <body>
     <div class="container-fluid">
 
+
         <div class="d-flex">
 
-            <div class="text-center col-6 p-4">
+            <div class="text-center col-6 p-4 d-none" >
                 <p>Select By Month</p>
                 <div>
                     <strong>
@@ -74,6 +75,7 @@
                     </select>
                 </div>
             </div>
+
             <div class="text-center col-6 p-4">
                 <form method="GET" action="/date">
                     <p>Select By Date</p>
@@ -93,6 +95,7 @@
                 </form>
             </div>
         </div>
+    @isset($projects)
        
         <table class="table table-responsive table-bordered text-center">
             <tr class="">
@@ -223,15 +226,16 @@
                 <th>Percentage of Money Scheduled</th>
             </tr>
             <tbody>
+                @foreach ($projects as $project)
                 <tr class="bg-3">
-                    <td><strong>Lyra</strong></td>
-                    <td>293</td>
-                    <td>478</td>
-                    <td>1599</td>
-                    <td>777</td>
-                    <td>267</td>
-                    <td>199</td>
-                    <td>2 min</td>
+                    <td><strong>{{$project->user}}</strong></td>
+                    <td>{{$project->user}}</td>
+                    <td>{{$project->File_Count}}</td>
+                    <td>{{$project->Email}}</td>
+                    <td>{{$project->SMS}}</td>
+                    <td>{{$project->Notes}}</td>
+                    <td>{{$project->Status_Changes}}</td>
+                    <td>{{$project->Debts}}</td>
                     <td>3</td>
                     <td>0.19 h</td>
                     <td>520</td>
@@ -300,85 +304,10 @@
                     <td>10.97</td>
                     <td class="text-danger">$ 3,235.49 </td>
                 </tr>
-                <tr>
-                    <td><strong>Lyra</strong></td>
-                    <td>293</td>
-                    <td>478</td>
-                    <td>1599</td>
-                    <td>777</td>
-                    <td>267</td>
-                    <td>199</td>
-                    <td>2 min</td>
-                    <td>3</td>
-                    <td>0.19 h</td>
-                    <td>520</td>
-                    <td>69.96 h</td>
-                    <td>77</td>
-                    <td>17</td>
-                    <td>4.53</td>
-                    <td>$ 1,317.57</td>
-                    <td>$ 370.53</td>
-                    <td>$ 1,688.10</td>
-                    <td>166</td>
-                    <td>138</td>
-                    <td>28</td>
-                    <td>$ 30,222.50</td>
-                    <td>49</td>
-                    <td>$ 10,508.75</td>
-                    <td>34.77%</td>
-                    <td>44</td>
-                    <td>$ 7,495.00</td>
-                    <td>24.80%</td>
-                    <td>17</td>
-                    <td>$ 2,553.75</td>
-                    <td>8.45%</td>
-                    <td>0</td>
-                    <td>$ -  </td>
-                    <td>0.00%</td>
-                    <td>12</td>
-                    <td>$ 2,883.75</td>
-                    <td>9.54%</td>
-                    <td>1</td>
-                    <td>$ 147.50</td>
-                    <td>0.49%</td>
-                    <td>5</td>
-                    <td>$ 540.00</td>
-                    <td>1.79%</td>
-                    <td class="bg-highlight-red">$ 26,394.00</td>
-                    <td>$ 191.26</td>
-                    <td class="text-danger">$ 690.00</td>
-                    <td>$ 15,652.51</td>
-                    <td>$ 15,387.69</td>
-                    <td>$ -  </td>
-                    <td>$ 77.69</td>
-                    <td>$ 75.12</td>
-                    <td>$ 659.25</td>
-                    <td>$ 74.96</td>
-                    <td>$ 7.36</td>
-                    <td class="bg-highlight-green">$10,051.49</td>
-                    <td>15.41</td>
-                    <td>100.00%</td>
-                    <td>0.00%</td>
-                    <td>0.00</td>
-                    <td>$ -  </td>
-                    <td>25.07%</td>
-                    <td>83.13%</td>
-                    <td>70.66</td>
-                    <td class="text-danger">$5,355.30</td>
-                    <td>35.56%</td>
-                    <td>3.31%</td>
-                    <td>35.91</td>
-                    <td>10.76%</td>
-                    <td>1.26 h</td>
-                    <td>4.87 h</td>
-                    <td>2.63 h</td>
-                    <td>0.63 h</td>
-                    <td>13.83 h</td>
-                    <td>10.97</td>
-                    <td class="text-danger">$ 3,235.49 </td>
-                </tr>
+        @endforeach
             </tbody>
         </table>
+        @endisset
     </div>
 </body>
 
