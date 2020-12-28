@@ -229,13 +229,13 @@
                 @foreach ($projects as $project)
                 <tr class="bg-3">
                     <td><strong>{{$project->user}}</strong></td>
-                    <td>{{$project->user}}</td>
                     <td>{{$project->File_Count}}</td>
                     <td>{{$project->Email}}</td>
                     <td>{{$project->SMS}}</td>
                     <td>{{$project->Notes}}</td>
                     <td>{{$project->Status_Changes}}</td>
                     <td>{{$project->Debts}}</td>
+                    <td>4 hours</td>
                     <td>3</td>
                     <td>0.19 h</td>
                     <td>520</td>
