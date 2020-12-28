@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Exports\ActivityExport;
+use App\Exports\MonthlyReportExport;
+use Maatwebsite\Excel\Concerns\FromView;
 
 class DateRangeController extends Controller
 {
@@ -72,6 +74,13 @@ class DateRangeController extends Controller
     	return view('monthlyreport');
     }
 
+    public function view()
+    {
+        return view('exports.invoices', [
+            'invoices' => Invoice::all()
+        ]);
+    }
+
     public function monthlyreport(Request $request){
     	 // $fromDate = $request->input('from_date') ?? Carbon::today();
         // $toDate = $request->input('to_date') ?? Carbon::today()->addYears(100);
@@ -100,6 +109,9 @@ class DateRangeController extends Controller
     */
     public function exportExcel() 
     {
+
+    return \Excel::download(new MonthlyReportExport, 'loans.xlsx');
+
     	// $projects = DB::table('projects')
             // ->join('debts', 'projects.id', '=', 'debts.projects_id')
             // ->select('projects.*','debts.*', DB::raw('sum(total) as sum'))
@@ -138,4 +150,5 @@ class DateRangeController extends Controller
 		})->export('xls');
         // return \Excel::download($file);
     }
+
 }
